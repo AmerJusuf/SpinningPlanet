@@ -55,6 +55,5 @@ public class GameClass extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		shapeRenderer.dispose();
-
 	}
 }

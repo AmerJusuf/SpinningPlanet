@@ -26,6 +26,7 @@ public class Player extends InputAdapter {
     ArrayList<String> imagePaths;
 
     int imageCounter = 0;
+    int imageShifter = 1;
     long changeImageDelayer = 0;
     long delayValue = 10;
 
@@ -78,9 +79,12 @@ public class Player extends InputAdapter {
     private void handleRunningImage(){
         changeImageDelayer++;
         if(changeImageDelayer == delayValue) {
-            imageCounter++;
+            imageCounter+=imageShifter;
             if (imageCounter >= 7) {
-                imageCounter = 0;
+                imageShifter = -1;
+            }
+            if(imageCounter <=0){
+                imageShifter = 1;
             }
             changeImageDelayer = 0;
         }
